@@ -2,15 +2,15 @@ import vk
 import getpass
 
 
-APP_ID = 6473984 
+APP_ID = 6473984
 
 
 def get_user_login():
-	return input("Логин: ")
+    return input("Логин: ")
 
 
 def get_user_password():
-	return getpass.getpass("Пароль: ")
+    return getpass.getpass("Пароль: ")
 
 
 def get_online_friends(login, password):
@@ -20,10 +20,9 @@ def get_online_friends(login, password):
         user_password=password,
         scope='friends'
     )
-    api = vk.API(session, version = 5.70)
+    api = vk.API(session, version=5.70)
     online_friends_id = api.friends.getOnline()
-    online_friends_name = api.users.get(user_ids = online_friends_id)
-    
+    online_friends_name = api.users.get(user_ids=online_friends_id)
     return online_friends_name
 
 
@@ -31,6 +30,7 @@ def output_friends_to_console(friends_online):
     print("Друзья онлайн: ")
     for friend in friends_online:
         print(friend['last_name'], friend['first_name'])
+
 
 if __name__ == '__main__':
     login = get_user_login()
