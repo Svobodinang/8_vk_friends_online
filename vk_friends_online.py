@@ -3,7 +3,6 @@ import getpass
 
 
 APP_ID = 6473984
-version_vk = 5.70
 
 
 def get_user_login():
@@ -14,7 +13,7 @@ def get_user_password():
     return getpass.getpass('Пароль: ')
 
 
-def get_online_friends(login, password):
+def get_online_friends(login, password, version_vk=5.70):
     session = vk.AuthSession(
         app_id=APP_ID,
         user_login=login,
